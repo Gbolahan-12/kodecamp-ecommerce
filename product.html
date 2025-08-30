@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Product - HorlaSwift</title>
+  <link rel="stylesheet" href="assets/css/styles.css"/>
+</head>
+<body>
+  <header class="header">
+    <div class="container header__inner">
+      <a href="index.html" class="logo">ShopSwift</a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="index.html#featured">Shop</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+      <div class="header__actions">
+        <input type="search" placeholder="Search products..." />
+        <a class="cart" href="cart.html" aria-label="Cart">
+          🛒 <span class="cart__badge" data-cart-count>0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container section">
+    <div id="product" class="product">
+      <div class="gallery" id="gallery"></div>
+      <div class="product__info">
+        <h1 id="title">Loading...</h1>
+        <div id="price" class="price"></div>
+        <p id="desc"></p>
+        <div class="qty-row">
+          <label for="qty">Qty</label>
+          <input id="qty" type="number" min="1" value="1"/>
+        </div>
+        <button id="add" class="btn">Add to Cart</button>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>© <span data-year></span> ShopSwift.</div>
+    </div>
+  </footer>
+
+  <script type="module">
+    import { initHeader, initFooterYear } from "./assets/js/app.js";
+    import { fetchProductById } from "./assets/js/api.js";
+    import { addToCart } from "./assets/js/cart.js";
+    import { getQueryParam, formatCurrency, showToast } from "./assets/js/utils.js";
+
+    window.addEventListener("DOMContentLoaded", async () => {
+      await initHeader();
+      initFooterYear();
+
+      const id = getQueryParam("id");
+      if (!id) return;
+
+      try {
+        const p = await fetchProductById(id);
+        document.getElementById("title").textContent = p.title;
+        document.getElementById("price").textContent = formatCurrency(p.price);
+        document.getElementById("desc").textContent = p.description;
+
+        const gal = document.getElementById("gallery");
+        const images = p.images && p.images.length ? p.images : ["https://placehold.co/800x600?text=No+Image"];
+        gal.innerHTML = `
+          <img class="gallery__main" src="${images[0]}" alt="${p.title}"/>
+          <div class="thumbs">
+            ${images.map((src,i)=> `<img class="thumb ${i===0?"active":""}" data-src="${src}" src="${src}" alt="thumb ${i+1}"/>`).join("")}
+          </div>
+        `;
+
+        gal.addEventListener("click", (e) => {
+          const t = e.target.closest(".thumb");
+          if (!t) return;
+          gal.querySelector(".gallery__main").src = t.dataset.src;
+          gal.querySelectorAll(".thumb").forEach(x => x.classList.remove("active"));
+          t.classList.add("active");
+        });
+
+        document.getElementById("add").addEventListener("click", () => {
+          const qty = parseInt(document.getElementById("qty").value || "1", 10);
+          addToCart(p, qty);
+          showToast("Added to cart", "success");
+        });
+      } catch (e) {
+        showToast("Product not found", "error");
+        console.error(e);
+      }
+    });
+  </script>
+</body>
+</html>

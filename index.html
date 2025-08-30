@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HorlaSwift - Home</title>
+  <link rel="stylesheet" href="assets/css/styles.css"/>
+</head>
+<body>
+  <header class="header">
+  <div class="container header__inner">
+    <!-- Logo -->
+    <a href="index.html" class="logo">HorlaSwift</a>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+      <button class="nav__close" id="navClose">&times;</button>
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- Right Actions -->
+    <div class="header__actions">
+      <form action="">
+        <input type="search" placeholder="Search products with title..." />
+      <!-- <button type="submit" class="btn search">Search</button> -->
+      </form>
+      <a class="cart" href="cart.html" aria-label="Cart">
+        🛒 <span class="cart__badge" data-cart-count>0</span>
+      </a>
+      <button class="menu-btn" id="menuBtn">&#9776;</button>
+    </div>
+  </div>
+</header>
+
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero__content">
+          <h1>Style, Tech & More</h1>
+          <p>Discover products you'll love. Fresh picks updated daily.</p>
+          <a href="shop.html" class="btn">Shop Now</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="categories" class="section">
+      <div class="container">
+        <h2>Filter with Categories</h2>
+        <div class="chips" data-categories></div>
+      </div>
+    </section>
+
+    <section id="featured" class="section">
+      <div class="container">
+        <h2>Featured Products</h2>
+        <div id="product-grid" class="grid"></div>
+        <div class="center mt-2"><button id="load-more" class="btn-outline">Load more</button></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>
+        <h3>HorlaSwift</h3>
+        <p id="about">We bring you a curated selection of items from a demo API.</p>
+        <div id="contact">Contact: hello@horlaswift.example</div>
+        <div class="social">
+          <a href="#">Twitter</a>
+          <a href="#">Instagram</a>
+          <a href="#">Facebook</a>
+        </div>
+      </div>
+      <div> &copy; <span data-year></span> HorlaSwift. All rights reserved.</div>
+    </div>
+  </footer>
+  <script src="./assets/js/app.js"></script>
+  <script src="./assets/js/cart.js"></script>
+</body>
+</html>
