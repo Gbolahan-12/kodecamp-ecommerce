@@ -247,6 +247,60 @@ body {
   height: 200px; 
 }
 
+/* General Layout */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Contact Form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 600px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.contact-form .btn {
+  background: #333;
+  color: #fff;
+  border: none;
+  padding: 0.75rem;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.contact-form .btn:hover {
+  background: #444;
+}
+
+/* Active nav link */
+.nav a.active {
+  color: #ff6600;
+  font-weight: bold;
+}
+
+/* Responsive Header Fix */
+@media (max-width: 768px) {
+  .header__actions input[type="search"] {
+    width: 140px;
+  }
+
+  .contact-form {
+    width: 100%;
+  }
+}
+
+
 
 /* Card body */
 .card-body {
@@ -284,6 +338,9 @@ body {
 .price {
   font-weight: 800;
   color: #6ee7b7;
+}
+#categories{
+  margin-top: 70px;
 }
 
 /* Chips */
@@ -596,4 +653,21 @@ body {
   .nav a {
     font-size: 1.2rem;
   }
+}
+@media screen and (max-width: 360px) {
+  .header__inner {
+    gap: 1rem;
+  }
+
+  input[type="search"] {
+    display: none;
+  }
+
+  .cart__badge {
+    font-size: 0.7rem;
+    padding: 0.15rem 0.3rem;
+    top: -6px;
+    right: -8px;
+  }
+  
 }

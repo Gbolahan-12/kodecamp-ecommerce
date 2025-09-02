@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - HorlaSwift</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<header class="header">
+  <div class="container header__inner">
+    <a href="index.html" class="logo">HorlaSwift</a>
+
+    <nav class="nav" id="nav">
+      <button class="nav__close" id="navClose">&times;</button>
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" class="active">Contact</a>
+    </nav>
+
+    <div class="header__actions">
+      <input type="search" placeholder="Search products..." />
+      <a class="cart" href="cart.html" aria-label="Cart">🛒 <span class="cart__badge" data-cart-count>0</span></a>
+      <button class="menu-btn" id="menuBtn">&#9776;</button>
+    </div>
+  </div>
+</header>
+
+<main class="section">
+  <div class="container">
+    <h1>Contact Us</h1>
+    <p>If you’d like to get in touch, please use the form below.</p>
+
+    <form class="contact-form">
+      <label for="name">Name</label>
+      <input type="text" id="name" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" required>
+
+      <label for="message">Message</label>
+      <textarea id="message" rows="5" required></textarea>
+
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <div>
+      <h3>HorlaSwift</h3>
+      <p>We bring you a curated selection of items from a demo API.</p>
+      <div>Contact: hello@horlaswift.example</div>
+      <div class="social">
+        <a href="#">Twitter</a>
+        <a href="#">Instagram</a>
+        <a href="#">Facebook</a>
+      </div>
+    </div>
+    <div>&copy; <span data-year></span> HorlaSwift. All rights reserved.</div>
+  </div>
+</footer>
+
+<script src="assets/js/app.js"></script>
+<script src="assets/js/cart.js"></script>
+</body>
+</html>

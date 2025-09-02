@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About - HorlaSwift</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<header class="header">
+  <div class="container header__inner">
+    <a href="index.html" class="logo">HorlaSwift</a>
+
+    <nav class="nav" id="nav">
+      <button class="nav__close" id="navClose">&times;</button>
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="about.html" class="active">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="header__actions">
+      <input type="search" placeholder="Search products..." />
+      <a class="cart" href="cart.html" aria-label="Cart">🛒 <span class="cart__badge" data-cart-count>0</span></a>
+      <button class="menu-btn" id="menuBtn">&#9776;</button>
+    </div>
+  </div>
+</header>
+
+<main class="section">
+  <div class="container">
+    <h1>About HorlaSwift</h1>
+    <p>
+      HorlaSwift is a demo marketplace built to showcase frontend development and API integration. 
+      Our mission is to bring users a clean and responsive shopping experience while demonstrating 
+      modern web development practices.
+    </p>
+    <p>
+      This project uses a fake API for products, categories, and checkout to simulate a real-world 
+      e-commerce application.
+    </p>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <div>
+      <h3>HorlaSwift</h3>
+      <p>We bring you a curated selection of items from a demo API.</p>
+      <div>Contact: hello@horlaswift.example</div>
+      <div class="social">
+        <a href="#">Twitter</a>
+        <a href="#">Instagram</a>
+        <a href="#">Facebook</a>
+      </div>
+    </div>
+    <div>&copy; <span data-year></span> HorlaSwift. All rights reserved.</div>
+  </div>
+</footer>
+
+<script src="assets/js/app.js"></script>
+<script src="assets/js/cart.js"></script>
+</body>
+</html>
