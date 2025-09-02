@@ -121,10 +121,10 @@ searchInput.addEventListener("input", (e) => {
 });
 
 // Load more functionality
-loadMoreBtn.addEventListener("click", () => {
-  currentPage++;
-  renderProducts();
-});
+// loadMoreBtn.addEventListener("click", () => {
+//   currentPage++;
+//   renderProducts();
+// });
 
 // Set footer year
 yearSpan.textContent = new Date().getFullYear();
